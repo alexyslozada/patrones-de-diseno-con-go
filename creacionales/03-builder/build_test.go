@@ -11,7 +11,7 @@ func TestSender_BuildMessage(t *testing.T) {
 	sender := &builder.Sender{}
 
 	sender.SetBuilder(json)
-	jsonMsg, err := sender.BuildMessage()
+	jsonMsg, err := sender.BuildMessage("Gopher", "Hola mundo!")
 	if err != nil {
 		t.Fatalf("BuildMesage(): JSON: no se esperaba error, se recibió: %v", err)
 	}
@@ -19,7 +19,7 @@ func TestSender_BuildMessage(t *testing.T) {
 	t.Log(string(jsonMsg.Body))
 
 	sender.SetBuilder(xml)
-	xmlMsg, err := sender.BuildMessage()
+	xmlMsg, err := sender.BuildMessage("Gopher", "Hola mundo")
 	if err != nil {
 		t.Fatalf("BuildMesage(): XML: no se esperaba error, se recibió: %v", err)
 	}

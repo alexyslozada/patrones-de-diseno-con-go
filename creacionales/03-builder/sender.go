@@ -10,9 +10,7 @@ func (s *Sender) SetBuilder(b MessageBuilder) {
 }
 
 // Build a concrete message via MessageBuilder
-func (s *Sender) BuildMessage() (*Message, error) {
-	s.builder.
-		SetRecipient("Mi mejor amigo/a").
-		SetMessage("Felicidades por aprender patrones de diseño en Go.")
+func (s *Sender) BuildMessage(recipient, message string) (*Message, error) {
+	s.builder.SetRecipient(recipient).SetMessage(message)
 	return s.builder.Build()
 }

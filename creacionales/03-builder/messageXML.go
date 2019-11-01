@@ -20,8 +20,8 @@ func (b *XMLMessageBuilder) SetMessage(text string) MessageBuilder {
 
 func (b *XMLMessageBuilder) Build() (*Message, error) {
 	m := MessageFormat{
-		Recipient: b.messageRecipient,
-		MessageText:      b.messageText,
+		Recipient:   b.messageRecipient,
+		MessageText: b.messageText,
 	}
 
 	data, err := xml.Marshal(m)
