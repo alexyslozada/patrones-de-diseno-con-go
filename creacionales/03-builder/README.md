@@ -11,3 +11,4 @@ Fuente código: [http://blog.ralch.com/tutorial/design-patterns/golang-builder/]
 
 Video de ejemplo:
 
+[![Builder (constructor)](http://img.youtube.com/vi/j6Uvm3kzEjU/0.jpg)](https://www.youtube.com/watch?v=j6Uvm3kzEjU)
