@@ -2,32 +2,29 @@ package builder
 
 import "encoding/xml"
 
-// XML Message Builder is concrete builder
+// XMLMessageBuilder is concrete builder
 type XMLMessageBuilder struct {
-	messageRecipient string
-	messageText      string
+	message Message
 }
 
+// SetRecipient asigna el receptor del mensaje
 func (b *XMLMessageBuilder) SetRecipient(recipient string) MessageBuilder {
-	b.messageRecipient = recipient
+	b.message.Recipient = recipient
 	return b
 }
 
+// SetMessage asigna el mensaje a enviar
 func (b *XMLMessageBuilder) SetMessage(text string) MessageBuilder {
-	b.messageText = text
+	b.message.Text = text
 	return b
 }
 
-func (b *XMLMessageBuilder) Build() (*Message, error) {
-	m := MessageFormat{
-		Recipient:   b.messageRecipient,
-		MessageText: b.messageText,
-	}
-
-	data, err := xml.Marshal(m)
+// Build construye el objeto y lo representa en XML
+func (b *XMLMessageBuilder) Build() (*MessageRepresented, error) {
+	data, err := xml.Marshal(b.message)
 	if err != nil {
 		return nil, err
 	}
 
-	return &Message{Body: data, Format: "XML"}, nil
+	return &MessageRepresented{Body: data, Format: "XML"}, nil
 }

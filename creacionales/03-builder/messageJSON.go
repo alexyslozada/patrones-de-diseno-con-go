@@ -2,32 +2,29 @@ package builder
 
 import "encoding/json"
 
-// JSON Message Builder is concrete builder
+// JSONMessageBuilder is concrete builder
 type JSONMessageBuilder struct {
-	messageRecipient string
-	messageText      string
+	message Message
 }
 
+// SetRecipient asigna el receptor del mensaje
 func (b *JSONMessageBuilder) SetRecipient(recipient string) MessageBuilder {
-	b.messageRecipient = recipient
+	b.message.Recipient = recipient
 	return b
 }
 
+// SetMessage asigna el mensaje a enviar
 func (b *JSONMessageBuilder) SetMessage(text string) MessageBuilder {
-	b.messageText = text
+	b.message.Text = text
 	return b
 }
 
-func (b *JSONMessageBuilder) Build() (*Message, error) {
-	m := MessageFormat{
-		Recipient:   b.messageRecipient,
-		MessageText: b.messageText,
-	}
-
-	data, err := json.Marshal(m)
+// Build construye el objeto y lo representa en JSON
+func (b *JSONMessageBuilder) Build() (*MessageRepresented, error) {
+	data, err := json.Marshal(b.message)
 	if err != nil {
 		return nil, err
 	}
 
-	return &Message{Body: data, Format: "JSON"}, nil
+	return &MessageRepresented{Body: data, Format: "JSON"}, nil
 }

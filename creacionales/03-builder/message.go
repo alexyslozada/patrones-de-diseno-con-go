@@ -1,13 +1,13 @@
 package builder
 
-// Producto concreto
+// Message = Producto concreto
 type Message struct {
-	Body   []byte
-	Format string
+	Recipient string `json:"recipient" xml:"recipient"`
+	Text      string `json:"text" xml:"text"`
 }
 
-// Producto Base
-type MessageFormat struct {
-	Recipient   string `json:"recipient",xml:"recipient"`
-	MessageText string `json:"message",xml:"message"`
+// MessageRepresented = Reresentación del objeto
+type MessageRepresented struct {
+	Body   []byte
+	Format string
 }

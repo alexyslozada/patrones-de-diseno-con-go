@@ -1,6 +1,6 @@
 # Builder (Constuctor)
 
-Este patrón de diseño nos permite encapsular la lógica de creación de los objetos. Se usa cuando el proceso de construcción de un objeto es complejo y se requiere entregar diferentes representaciones.
+Permite separar la construcción de un objeto (complejo o no) de su representación con el fin de que el mismo proceso de creación pueda crear diferentes representaciones.
 
 - Product: Objeto principal construido. Representa el objeto bajo construcción.
 - Builder: define la interface con los métodos que deberán cumplir los constructores.
