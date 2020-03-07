@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/alexyslozada/pruebas/decorator"
+	decorator "github.com/alexyslozada/patrones-de-diseno-con-go/estructurales/06-decorator"
 )
 
 func main() {
@@ -21,6 +21,6 @@ func main() {
 }
 
 func start(route *decorator.Route) {
-	route.Add(decorator.NewHandlerSayHello(), "/saludar")
-	route.Add(decorator.NewHandlerSayGoodbye(), "/despedirse")
+	route.Add(decorator.NewLogRegistry(decorator.NewHandlerSayHello()), "/saludar")
+	route.Add(decorator.NewLogRegistry(decorator.NewHandlerSayGoodbye()), "/despedirse")
 }
