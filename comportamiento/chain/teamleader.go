@@ -12,7 +12,7 @@ func NewTeamLeader(s Responsable) TeamLeader {
 
 func (tl TeamLeader) Handle(process string) {
 	if process == "MR" {
-		fmt.Print("Procesando merge... OK 🏘️")
+		fmt.Println("Procesando merge... OK 🏘️")
 		return
 	}
 

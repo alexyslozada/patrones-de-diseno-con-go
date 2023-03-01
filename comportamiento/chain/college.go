@@ -12,7 +12,7 @@ func NewCollege(s Responsable) College {
 
 func (c College) Handle(process string) {
 	if process == "CR" {
-		fmt.Print("Revisando... Qué bien ✅")
+		fmt.Println("Revisando... Qué bien ✅")
 		return
 	}
 

@@ -10,7 +10,7 @@ func NewSRE() SRE {
 
 func (sre SRE) Handle(process string) {
 	if process == "DP" {
-		fmt.Print("Deployando... 🚀")
+		fmt.Println("Deployando... 🚀")
 		return
 	}
 
